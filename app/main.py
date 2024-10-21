@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 settings = Settings()
 app = FastAPI()
 
-#Logger with date, time, and line number
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s - [%(filename)s:%(lineno)d]",
@@ -30,10 +30,22 @@ logger = logging.getLogger(__name__)
 
 pipe = load_inpainting_model()
 
-#Pydantic model for validating input parameters
+
 class ImageSize(BaseModel):
-    width: int = Field(..., gt=0, le=4096, description="The target width for the inpainted image (must be between 1 and 4096)")
-    height: int = Field(..., gt=0, le=4096, description="The target height for the inpainted image (must be between 1 and 4096)")
+    width: int = Field(...)
+    height: int = Field(...)
+
+    @validator("width")
+    def validate_width(cls, value):
+        if value <= 0 or value % 8 != 0:
+            raise ValueError("Width must be a positive even number divisible by 8.")
+        return value
+
+    @validator("height")
+    def validate_height(cls, value):
+        if value <= 0 or value % 8 != 0:
+            raise ValueError("Height must be a positive even number divisible by 8.")
+        return value
 
 @app.post("/inpaint/")
 async def inpaint(image: UploadFile = File(...), width: int = Form(...), height: int = Form(...)):
