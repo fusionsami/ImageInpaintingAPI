@@ -2,8 +2,7 @@ from diffusers import AutoPipelineForInpainting
 import torch
 import logging
 
-logger = logging.getLogger(__name__)
-
+logger = logging.getLogger("InpaintLoging")
 
 def load_inpainting_model(model_name: str = "runwayml/stable-diffusion-inpainting"):
     """

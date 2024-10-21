@@ -1,13 +1,11 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
-from fastapi.responses import StreamingResponse, Response
-from pydantic import BaseModel, Field, ValidationError, BaseSettings
-from PIL import Image, ImageOps
-import io
-import logging
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel, Field, ValidationError, BaseSettings, validator
 from dotenv import load_dotenv
 
 from utils import validate_image, pad_image, create_mask, inpaint_image
 from models import load_inpainting_model
+from logging_config import setup_logging
 
 load_dotenv()
 class Settings(BaseSettings):
@@ -20,13 +18,7 @@ class Settings(BaseSettings):
 settings = Settings()
 app = FastAPI()
 
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s - [%(filename)s:%(lineno)d]",
-    datefmt="%Y-%m-%d %H:%M:%S"
-)
-logger = logging.getLogger(__name__)
+logger = setup_logging() 
 
 pipe = load_inpainting_model()
 

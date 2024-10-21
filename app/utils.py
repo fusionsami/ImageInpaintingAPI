@@ -4,7 +4,7 @@ import logging
 from PIL import Image, ImageOps
 from fastapi import HTTPException
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("InpaintLoging")
 
 def validate_image(image_bytes: bytes) -> Image.Image:
     """
