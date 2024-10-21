@@ -7,10 +7,14 @@ from utils import validate_image, pad_image, create_mask, inpaint_image
 from models import load_inpainting_model
 from logging_config import setup_logging
 
-load_dotenv()
 class Settings(BaseSettings):
-    target_width: int = Field(512, description="Default target width for inpainted images")
-    target_height: int = Field(512, description="Default target height for inpainted images")
+    PROMPT: str = Field(..., description="Prompt for inpainting")
+    NEGATIVE_PROMPT: str = Field(..., description="Negative prompt for inpainting")
+    GUIDANCE_SCALE: float = Field(..., description="Guidance scale for inpainting")
+    STRENGTH: float = Field(..., description="Strength for inpainting")
+    MODEL_NAME: str = Field(description="Model name for inpainting")
+    NUM_INFERENCE_STEPS: int = Field(..., description="Num inference steps")
+
 
     class Config:
         env_file = ".env" 
@@ -20,7 +24,7 @@ app = FastAPI()
 
 logger = setup_logging() 
 
-pipe = load_inpainting_model()
+pipe = load_inpainting_model(settings.MODEL_NAME)
 
 
 class ImageSize(BaseModel):
@@ -72,7 +76,7 @@ async def inpaint(image: UploadFile = File(...), width: int = Form(...), height:
     padded_image = pad_image(validated_image, width, height)
     mask = create_mask(validated_image, width, height)
 
-    inpainted_image = inpaint_image(pipe,padded_image,mask,width,height)
+    inpainted_image = inpaint_image(pipe,padded_image,mask,width,height, settings)
     
     return StreamingResponse(inpainted_image, media_type="image/jpeg")
 

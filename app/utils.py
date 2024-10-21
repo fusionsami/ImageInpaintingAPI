@@ -105,7 +105,7 @@ def create_mask(original_image: Image.Image, target_width: int, target_height: i
     return mask
 
 
-def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int, height: int):
+def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int, height: int, settings):
     """
     Perform inpainting on the padded image using the provided mask.
 
@@ -122,13 +122,15 @@ def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int
     """
     try:
         inpainted_image = pipe(
-            prompt="expand image, resize and fill naturally, high resolution, natural continuation, natural background characters, realistic background characters", 
-            negative_prompt="blurry, distorted, unclear, low resolution, Double head, Double figure, double body, Disfigured body, logo, watermark, text, title, signature, words, letters, characters, subtitle, cropped, zoomed, extra fingers, extra limbs, unnatural hands, extra legs, disfigured, disfigured fingers, disfigured hands, glasses, straws, unnatural background characters",
-            guidance_scale=10,
+            prompt=settings.PROMPT, 
+            negative_prompt=settings.NEGATIVE_PROMPT,
+            guidance_scale=settings.GUIDANCE_SCALE,
+            strength=settings.STRENGTH,
             image=padded_image,
             mask_image=mask,
             width=width,
-            height=height
+            height=height,
+            num_inference_steps=settings.NUM_INFERENCE_STEPS
         ).images[0]
 
         img_byte_arr = io.BytesIO()

@@ -4,7 +4,7 @@ import logging
 
 logger = logging.getLogger("InpaintLoging")
 
-def load_inpainting_model(model_name: str = "runwayml/stable-diffusion-inpainting"):
+def load_inpainting_model(model_name: str):
     """
     Load the inpainting model pipeline from Hugging Face Diffusers.
 
