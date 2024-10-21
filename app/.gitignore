@@ -1,0 +1,95 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+test_venv/
+ENV/
+env/
+.venv/
+venv.bak/
+
+# Pipenv specific
+Pipfile.lock
+
+# Pyre type checker
+.pyre/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pyright
+pyrightcache/
+
+# pytest
+.cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.env.local
+.env.*.bak
+.envrc
+
+# VS Code settings
+.vscode/
+
+# PyCharm
+.idea/
+
+# FastAPI logs
+*.log
+logs/
+
+# Local inpainting API logs and checkpoints
+inpainting_logs/
+checkpoints/
+
+
+# Generated files
+build/
+dist/
+*.egg-info/
+
+# MacOS
+.DS_Store
+
+# Thumbnails
+*.png
+*.jpg
+*.jpeg
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installers
+*.exe
+*.dll
+*.deb
+*.pkg
+
+# Unit test / coverage results
+test_results/
+
+# System files
+*.bak
+*.swp
+*.swo
