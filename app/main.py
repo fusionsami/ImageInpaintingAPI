@@ -69,13 +69,7 @@ async def inpaint(image: UploadFile = File(...), width: int = Form(...), height:
     mask = create_mask(validated_image, width, height)
 
     inpainted_image = inpaint_image(pipe,padded_image,mask,width,height)
-
-    img_byte_arr = io.BytesIO()
-    inpainted_image.save(img_byte_arr, format='JPEG')
-    img_byte_arr.seek(0)
-
-    logger.info("Image inpainting successful")
     
-    return StreamingResponse(img_byte_arr, media_type="image/jpeg")
+    return StreamingResponse(inpainted_image, media_type="image/jpeg")
 
 

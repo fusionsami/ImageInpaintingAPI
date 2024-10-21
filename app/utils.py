@@ -131,8 +131,14 @@ def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int
             height=height
         ).images[0]
 
+        img_byte_arr = io.BytesIO()
+        inpainted_image.save(img_byte_arr, format='JPEG')
+        img_byte_arr.seek(0)
+
+        logger.info("Image inpainting successful")
+
        
-        return inpainted_image
+        return img_byte_arr
 
     except Exception as e:
         logger.error(f"Error during inpainting: {str(e)}")
