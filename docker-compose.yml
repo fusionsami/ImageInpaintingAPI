@@ -1,9 +1,14 @@
-version: "3.9"
+version: '3.8'
 
 services:
-  inpainting-api:
-    build: ./app
+  image_inpainting_api:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8000:8000" 
+    volumes:
+      - /path/to/your/logs:/app/logs 
+      - ./app:/app 
     environment:
-      - ENV=production
+      - ENV_FILE=.env  

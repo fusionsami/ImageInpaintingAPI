@@ -8,12 +8,12 @@ from models import load_inpainting_model
 from logging_config import setup_logging
 
 class Settings(BaseSettings):
-    PROMPT: str = Field(..., description="Prompt for inpainting")
-    NEGATIVE_PROMPT: str = Field(..., description="Negative prompt for inpainting")
-    GUIDANCE_SCALE: float = Field(..., description="Guidance scale for inpainting")
-    STRENGTH: float = Field(..., description="Strength for inpainting")
+    PROMPT: str | None = Field(description="Prompt for inpainting")
+    NEGATIVE_PROMPT: str | None = Field(description="Negative prompt for inpainting")
+    GUIDANCE_SCALE: float | None = Field(description="Guidance scale for inpainting")
+    STRENGTH: float | None = Field(description="Strength for inpainting")
     MODEL_NAME: str = Field(description="Model name for inpainting")
-    NUM_INFERENCE_STEPS: int = Field(..., description="Num inference steps")
+    NUM_INFERENCE_STEPS: int | None = Field(description="Num inference steps")
 
 
     class Config:

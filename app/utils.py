@@ -121,25 +121,42 @@ def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int
         HTTPException: If an error occurs during inpainting.
     """
     try:
-        inpainted_image = pipe(
-            prompt=settings.PROMPT, 
-            negative_prompt=settings.NEGATIVE_PROMPT,
-            guidance_scale=settings.GUIDANCE_SCALE,
-            strength=settings.STRENGTH,
-            image=padded_image,
-            mask_image=mask,
-            width=width,
-            height=height,
-            num_inference_steps=settings.NUM_INFERENCE_STEPS
-        ).images[0]
+
+        params = {
+            'image': padded_image,
+            'mask_image': mask,
+            'width': width,
+            'height': height,
+        }
+
+        if settings.PROMPT is not None:
+            params['prompt'] = settings.PROMPT
+        else:
+            params['prompt'] = "expand image, resize and fill naturally, high resolution, natural continuation, natural background characters, realistic background characters"
+        
+        if settings.NEGATIVE_PROMPT is not None:
+            params['negative_prompt'] = settings.NEGATIVE_PROMPT
+        else:
+            params['negative_prompt'] = "blurry, image repeat, distorted, unclear, low resolution, Double head, Double figure, double body, Disfigured body, logo, watermark, text, title, signature, words, letters, characters, subtitle, cropped, zoomed, extra fingers, extra limbs, unnatural hands, extra legs, disfigured, disfigured fingers, disfigured hands, glasses, straws, unnatural background characters"
+        
+        if settings.GUIDANCE_SCALE is not None:
+            params['guidance_scale'] = settings.GUIDANCE_SCALE
+
+        if settings.STRENGTH is not None:
+            params['strength'] = settings.STRENGTH
+
+        if settings.NUM_INFERENCE_STEPS is not None:
+            params['num_inference_steps'] = settings.NUM_INFERENCE_STEPS
+
+        logger.info(f"width: {width}, height: {height}, NUM_INFERENCE_STEPS: {settings.NUM_INFERENCE_STEPS}, guidance_scale: {settings.GUIDANCE_SCALE}, STRENGTH: {settings.STRENGTH}")
+
+        inpainted_image = pipe(**params).images[0]
 
         img_byte_arr = io.BytesIO()
         inpainted_image.save(img_byte_arr, format='JPEG')
         img_byte_arr.seek(0)
 
         logger.info("Image inpainting successful")
-
-       
         return img_byte_arr
 
     except Exception as e:
