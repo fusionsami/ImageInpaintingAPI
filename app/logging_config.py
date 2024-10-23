@@ -5,20 +5,20 @@ import logging
 
 def setup_logging():
     # directory for logs if it doesn't exist
-    os.makedirs("logs", exist_ok=True)
+    os.makedirs("../logs", exist_ok=True)
 
     # a logger with propagation enabled
     logger = logging.getLogger("InpaintLoging")  # Use a specific name for your app
     logger.setLevel(logging.DEBUG)  # Set the logging level to DEBUG
 
     # handlers for different log levels
-    info_handler = logging.FileHandler("logs/info.log")
+    info_handler = logging.FileHandler("../logs/info.log")
     info_handler.setLevel(logging.INFO)
 
-    warning_handler = logging.FileHandler("logs/warning.log")
+    warning_handler = logging.FileHandler("../logs/warning.log")
     warning_handler.setLevel(logging.WARNING)
 
-    error_handler = logging.FileHandler("logs/error.log")
+    error_handler = logging.FileHandler("../logs/error.log")
     error_handler.setLevel(logging.ERROR)
 
     # formatter
