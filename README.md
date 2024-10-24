@@ -20,6 +20,17 @@ API Details
   - **Request:** multipart/form-data
   - **Response:** image/jpeg
 
+Validation Notes
+------------------
+- **Image File:**
+  - Must be provided.
+  - Must not be empty.
+  - Supported formats: JPEG, PNG.
+    
+- **Width and Height:**
+  - Must be positive integers.
+  - Must be divisible by 8.
+
 CURL
 ------------
 ```
