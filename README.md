@@ -63,3 +63,9 @@ Example
 
 ### Output Image:
 ![Output Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/dog_inpainted.jpg)
+
+
+Limitations and Notes
+-----------------------
+- **Accuracy Variability:** Due to the complexity of image inpainting tasks, the API may not always produce accurate results. In such cases, requesting multiple times may yield better outcomes.
+- **Request Retry:** If the initial response is not satisfactory, clients may need to re-request the inpainting process to achieve desired results.
