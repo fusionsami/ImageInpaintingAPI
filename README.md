@@ -30,7 +30,13 @@ Validation Notes
 - **Width and Height:**
   - Must be positive integers.
   - Must be divisible by 8.
-
+ 
+Error Details
+----------------
+- **400 Bad Request:** Invalid request format.
+- **422 Validation Error:** Invalid image file or dimensions.
+- **500 Internal Server Error:** Server-side error.
+  
 CURL
 ------------
 ```
