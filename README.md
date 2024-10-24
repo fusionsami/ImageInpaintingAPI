@@ -28,3 +28,15 @@ curl --location 'http://0.0.0.0:8000/inpaint/' \
 --form 'height="400"' \
 --form 'width="600"'
 ```
+
+Example
+----------------
+
+### API:
+![Input Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/postman_api_details.png)
+
+### Input Image:
+![Input Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/dog.jpg)
+
+### Output Image:
+![Output Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/dog_inpainted.jpg)
