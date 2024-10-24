@@ -10,9 +10,6 @@ services:
     volumes:
       - .:/app
       - ./logs:/logs
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
     runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
