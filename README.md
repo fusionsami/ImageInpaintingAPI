@@ -19,4 +19,12 @@ API Details
 - **Request/Response Formats:**
   - **Request:** multipart/form-data
   - **Response:** image/jpeg
----------------------------
+
+CURL
+------------
+```
+curl --location 'http://0.0.0.0:8000/inpaint/' \
+--form 'image=@"/E:/ImageInpainting/dg.jpg"' \
+--form 'height="400"' \
+--form 'width="600"'
+```
