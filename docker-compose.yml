@@ -1,14 +1,18 @@
 version: '3.8'
 
 services:
-  image_inpainting_api:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+  app:
+    build: .
+    env_file:
+      - .env 
     ports:
-      - "8000:8000" 
+      - "8000:8000"
     volumes:
-      - /path/to/your/logs:/app/logs 
-      - ./app:/app 
-    environment:
-      - ENV_FILE=.env  
+      - .:/app
+      - ./logs:/logs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
