@@ -3,9 +3,9 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field, ValidationError, BaseSettings, validator
 from dotenv import load_dotenv
 
-from utils import validate_image, pad_image, create_mask, inpaint_image
-from models import load_inpainting_model
-from logging_config import setup_logging
+from app.utils import validate_image, pad_image, create_mask, inpaint_image
+from app.models import load_inpainting_model
+from app.logging_config import setup_logging
 
 class Settings(BaseSettings):
     PROMPT: str | None = Field(description="Prompt for inpainting")
