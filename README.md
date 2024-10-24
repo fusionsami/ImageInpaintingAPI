@@ -56,13 +56,13 @@ Example
 ----------------
 
 ### API:
-![Input Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/postman_api_details.png)
+![Input Image](./example_images/postman_api_details.png)
 
 ### Input Image:
-![Input Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/dog.jpg)
+![Input Image](./example_images/dog.jpg)
 
 ### Output Image:
-![Output Image](https://github.com/fusionsami/ImageInpaintingAPI/blob/main/example_images/dog_inpainted.jpg)
+![Output Image](./example_images/dog_inpainted.jpg)
 
 
 Limitations and Notes
