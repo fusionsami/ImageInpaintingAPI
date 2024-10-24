@@ -1,7 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field, ValidationError, BaseSettings, validator
-from dotenv import load_dotenv
 
 from app.utils import validate_image, pad_image, create_mask, inpaint_image
 from app.models import load_inpainting_model
@@ -54,7 +53,7 @@ async def inpaint(image: UploadFile = File(...), width: int = Form(...), height:
         height (int): The target height for the inpainted image. Default is 512.
 
     Returns:
-        dict: Response inpainted image.
+        image: Response inpainted image.
 
     Raises:
         HTTPException: If an error occurs during image processing or validation.

@@ -15,10 +15,9 @@ def load_inpainting_model(model_name: str):
         The inpainting model pipeline.
     """
     torch_dtype =torch.float16 if torch.cuda.is_available() else torch.float32
-    logger.info(f"Loading inpainting model on {'CUDA' if torch.cuda.is_available() else 'CPU'}...")
+    logger.info(f"Loading inpainting model on {'GPU' if torch.cuda.is_available() else 'CPU'}...")
 
     try:
-        # Load the pipeline
         pipe = AutoPipelineForInpainting.from_pretrained(model_name, torch_dtype=torch_dtype)
         logger.info("Model loaded successfully.")
 
