@@ -64,9 +64,9 @@ dist/
 .DS_Store
 
 # Thumbnails
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
 
 # Coverage reports
 htmlcov/
