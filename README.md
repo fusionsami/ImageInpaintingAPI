@@ -2,7 +2,11 @@ Image Inpainting API
 =====================================
 Overview
 ------------
-The Image Inpainting API is a Python-based API that performs image inpainting to increase image dimensions using generative techniques.
+The Image Inpainting API is a Python-based API that utilizes the Hugging Face Transformers library to perform image inpainting using state-of-the-art models. Specifically, this API employs the Deep Image Inpainting model(runwayml/stable-diffusion-inpaintin), which is fine-tuned for image completion tasks.
+The API is built using FastAPI and utilizes the PyTorch library for efficient model inference. The inpainting process is executed via a pipeline (pipe) that integrates the following components:
+- **Image Preprocessing:** Handles image resizing, normalization, and formatting.
+- **Deep Image Inpainting Model:** Performs image completion using the Hugging Face model like runwayml/stable-diffusion-inpaintin.
+- **Post-processing:** Converts the output to the desired image format.
 
 API Details
 ------------
