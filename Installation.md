@@ -12,7 +12,16 @@ This guide provides instructions on how to run the Image Inpainting API in three
     - Docker Desktop with WSL 2 support
     - NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
     - [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
-
+ - **Configure Environment Variables:**
+    - PROMPT, NEGATIVE_PROMPT, GUIDANCE_SCALE, STRENGTH and NUM_INFERENCE_STEPS are optional (preconfigured). Only adjust if needed. MODEL_NAME is required
+    ```
+    #PROMPT=PROMPT  #Not Required
+    #NEGATIVE_PROMPT=NEGATIVE_PROMPT #Not Required
+    #GUIDANCE_SCALE=7 #Not Required
+    #STRENGTH=0.1 #Not Required
+    MODEL_NAME=runwayml/stable-diffusion-inpainting #Required
+    #NUM_INFERENCE_STEPS=NUM_INFERENCE_STEPS #Not Required
+   ```
 # Clone the Repository:
    ```
    git clone https://github.com/fusionsami/ImageInpaintingAPI.git
