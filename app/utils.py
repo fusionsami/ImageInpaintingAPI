@@ -132,7 +132,7 @@ def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int
         if settings.PROMPT is not None:
             params['prompt'] = settings.PROMPT
         else:
-            params['prompt'] = "expand image, resize and fill naurally, high resolution, natural continuation"
+            params['prompt'] = "expand image, resize and fill naurally, high resolution, natural continuation, clear skin, detailed eyes"
         
         if settings.NEGATIVE_PROMPT is not None:
             params['negative_prompt'] = settings.NEGATIVE_PROMPT
