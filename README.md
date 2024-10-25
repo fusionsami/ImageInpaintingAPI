@@ -72,4 +72,4 @@ Limitations and Notes
 
 Installation
 -----------------------
-- Refer to the ![Installation.md](./Installation.md) file for setup and installation instructions.
+- Refer to the [Installation.md](./Installation.md) file for setup and installation instructions.
