@@ -132,12 +132,12 @@ def inpaint_image(pipe, padded_image: Image.Image, mask: Image.Image, width: int
         if settings.PROMPT is not None:
             params['prompt'] = settings.PROMPT
         else:
-            params['prompt'] = "expand image, resize and fill naturally, high resolution, natural continuation, natural background characters, realistic background characters"
+            params['prompt'] = "expand image, resize and fill naurally, high resolution, natural continuation"
         
         if settings.NEGATIVE_PROMPT is not None:
             params['negative_prompt'] = settings.NEGATIVE_PROMPT
         else:
-            params['negative_prompt'] = "blurry, image repeat, distorted, unclear, low resolution, Double head, Double figure, double body, Disfigured body, logo, watermark, text, title, signature, words, letters, characters, subtitle, cropped, zoomed, extra fingers, extra limbs, unnatural hands, extra legs, disfigured, disfigured fingers, disfigured hands, glasses, straws, unnatural background characters"
+            params['negative_prompt'] = "stretch, blurry, unclear, image repeat, stickers, new images, outpaint, blur, cut, unmatch filling, noise, low resolution, pixelation, distortion, grid, frame, divider, Double head, Double figure, double body, Disfigured body, logo, watermark, text, title, signature, words, letters, characters, subtitle, cropped, zoomed, extra fingers, extra limbs, unnatural hands, extra legs, disfigured, disfigured fingers, disfigured hands, unnatural background characters"
         
         if settings.GUIDANCE_SCALE is not None:
             params['guidance_scale'] = settings.GUIDANCE_SCALE
