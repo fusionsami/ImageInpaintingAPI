@@ -8,7 +8,6 @@ services:
     volumes:
       - .:/app
       - ./logs:/logs
-
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
