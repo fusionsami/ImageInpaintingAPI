@@ -13,7 +13,7 @@ This guide provides instructions on how to run the Image Inpainting API in two d
     - NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
     - [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
  - **Configure Environment Variables:**
-    - Create a .env file inside root directory.
+    - Create a .env file inside root directory after cloning the repository.
     - PROMPT, NEGATIVE_PROMPT, GUIDANCE_SCALE, STRENGTH and NUM_INFERENCE_STEPS are optional (preconfigured). Only adjust if needed. MODEL_NAME is required
     ```
     #PROMPT=PROMPT  #Not Required
