@@ -4,6 +4,8 @@ This document provides step-by-step instructions to install and run the Image In
 This guide provides instructions on how to run the Image Inpainting API in two different scenarios:
 - **Running without Docker**
 - **Running with Docker**
+    - With NVIDIA GPU Supported.
+    - Without NVIDIA GPU(CPU).
 
 
 # Prerequisites
