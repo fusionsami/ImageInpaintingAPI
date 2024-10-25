@@ -1,6 +1,4 @@
 FROM python:3.10-slim
-# # Use the CUDA runtime base image
-# FROM nvidia/cuda:12.0.0-runtime-ubuntu22.04
 
 WORKDIR /app
 COPY requirements.txt .
