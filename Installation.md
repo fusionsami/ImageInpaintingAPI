@@ -34,7 +34,8 @@ This guide provides instructions on how to run the Image Inpainting API in two d
    ```
 │   .env
 │   .gitignore
-│   docker-compose.yml
+|   docker-compose-cpu.yml
+│   docker-compose-gpu.yml
 │   Dockerfile
 │   Installation.md
 │   README.md
