@@ -90,3 +90,7 @@ This guide provides instructions on how to run the Image Inpainting API in two d
    docker-compose exec app /bin/sh #To run a command in the running container
    
   ```
+
+ # Logs
+  - Logs for all methods will be stored in the same location (./logs) as per the project structure.
+  - Console log is also included for easy debugging.
