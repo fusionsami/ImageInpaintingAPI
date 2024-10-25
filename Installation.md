@@ -79,5 +79,14 @@ This guide provides instructions on how to run the Image Inpainting API in three
 ### Run the Application
  - In root directory buid and up using docker-compose.yml file.
    ```
-  docker-compose up --build
+   docker-compose up --build
    ```
+- Useful Docker Commands:
+  ```
+   docker-compose build #rebuild the Docker image
+   docker-compose up #To start the services defined in your docker-compose.yml file
+   docker-compose down #To stop the running services
+   docker-compose logs app #To view logs of a specific service
+   docker-compose exec app /bin/sh #To run a command in the running container
+   
+  ```
