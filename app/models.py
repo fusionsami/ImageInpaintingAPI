@@ -2,7 +2,7 @@ from diffusers import AutoPipelineForInpainting
 import torch
 import logging
 
-logger = logging.getLogger("InpaintLoging")
+logger = logging.getLogger("InpaintLogging")
 
 def load_inpainting_model(model_name: str):
     """

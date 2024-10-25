@@ -4,37 +4,38 @@ import os
 import logging
 
 def setup_logging():
-    # directory for logs if it doesn't exist
-    os.makedirs("../logs", exist_ok=True)
+    # Get the absolute path to the logs directory
+    log_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../logs/"))       
+    os.makedirs(log_dir, exist_ok=True)
 
-    # a logger with propagation enabled
-    logger = logging.getLogger("InpaintLoging")  # Use a specific name for your app
+    # Create a logger with propagation enabled
+    logger = logging.getLogger("InpaintLogging")  # Use a specific name for your app
     logger.setLevel(logging.DEBUG)  # Set the logging level to DEBUG
 
-    # handlers for different log levels
-    info_handler = logging.FileHandler("../logs/info.log")
+    # Handlers for different log levels
+    info_handler = logging.FileHandler(os.path.join(log_dir, "info.log"))
     info_handler.setLevel(logging.INFO)
 
-    warning_handler = logging.FileHandler("../logs/warning.log")
+    warning_handler = logging.FileHandler(os.path.join(log_dir, "warning.log"))
     warning_handler.setLevel(logging.WARNING)
 
-    error_handler = logging.FileHandler("../logs/error.log")
+    error_handler = logging.FileHandler(os.path.join(log_dir, "error.log"))
     error_handler.setLevel(logging.ERROR)
 
-    # formatter
+    # Formatter
     formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s - [%(filename)s:%(lineno)d]")
 
-    # formatter to handlers
+    # Attach formatter to handlers
     info_handler.setFormatter(formatter)
     warning_handler.setFormatter(formatter)
     error_handler.setFormatter(formatter)
 
-    # handlers to the logger
+    # Attach handlers to the logger
     logger.addHandler(info_handler)
     logger.addHandler(warning_handler)
     logger.addHandler(error_handler)
 
-    # console logging
+    # Console logging
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
