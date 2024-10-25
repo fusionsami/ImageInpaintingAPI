@@ -11,7 +11,7 @@ This guide provides instructions on how to run the Image Inpainting API in two d
 # Prerequisites
  - **General Requirements:**
     - Python 3.10 or higher
-    - Docker Desktop with WSL 2 support
+    - Docker Desktop
     - If you have a NVIDIA GPU, install NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
     - If you have a NVIDIA GPU, install [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
  - **Configure Environment Variables:**
@@ -34,7 +34,8 @@ This guide provides instructions on how to run the Image Inpainting API in two d
    ```
 │   .env
 │   .gitignore
-│   docker-compose.yml
+|   docker-compose-cpu.yml
+│   docker-compose-gpu.yml
 │   Dockerfile
 │   Installation.md
 │   README.md
