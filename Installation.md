@@ -10,8 +10,8 @@ This guide provides instructions on how to run the Image Inpainting API in two d
  - **General Requirements:**
     - Python 3.10 or higher
     - Docker Desktop with WSL 2 support
-    - NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
-    - [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
+    - If you have a NVIDIA gpu, install NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
+    - If you have a NVIDIA gpu, install [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
  - **Configure Environment Variables:**
     - Create a .env file inside root directory after cloning the repository.
     - PROMPT, NEGATIVE_PROMPT, GUIDANCE_SCALE, STRENGTH and NUM_INFERENCE_STEPS are optional (preconfigured). Only adjust if needed. MODEL_NAME is required
