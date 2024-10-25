@@ -94,3 +94,17 @@ This guide provides instructions on how to run the Image Inpainting API in two d
  # Logs
   - Logs for all methods will be stored in the same location (./logs) as per the project structure.
   - Console log is also included for easy debugging.
+
+# Testing the API
+  - You can now test the API locally. Go to http://localhost:8000/inpaint/ using POST method.
+  - Please check the given curl:
+    ```
+     curl --location 'http://0.0.0.0:8000/inpaint/' \
+     --form 'image=@"/E:/ImageInpainting/dg.jpg"' \
+     --form 'height="400"' \
+     --form 'width="600"'
+    ```
+
+  ### Example:
+   ![Input Image](./example_images/postman_api_details.png)
+     
