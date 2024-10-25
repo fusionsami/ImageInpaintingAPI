@@ -1,17 +1,28 @@
 # Image Inpainting API - Setup and Run Guide
 This document provides step-by-step instructions to install and run the Image Inpainting API locally with or without GPU support.
 
-This guide provides instructions on how to run the Image Inpainting API in three different scenarios:
+This guide provides instructions on how to run the Image Inpainting API in two different scenarios:
 - **Running without Docker**
-- **Running with Docker (CPU)**
-- **Running with Docker (GPU)**
+- **Running with Docker**
+
 
 # Prerequisites
  - **General Requirements:**
     - Python 3.8 or higher
     - Docker Desktop with WSL 2 support
     - NVIDIA [drivers](https://www.nvidia.com/en-us/drivers/) based on you gpu configurations.
-
+    - [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn)
+ - **Configure Environment Variables:**
+    - Create a .env file inside root directory after cloning the repository.
+    - PROMPT, NEGATIVE_PROMPT, GUIDANCE_SCALE, STRENGTH and NUM_INFERENCE_STEPS are optional (preconfigured). Only adjust if needed. MODEL_NAME is required
+    ```
+    #PROMPT=PROMPT  #Not Required
+    #NEGATIVE_PROMPT=NEGATIVE_PROMPT #Not Required
+    #GUIDANCE_SCALE=7 #Not Required
+    #STRENGTH=0.1 #Not Required
+    MODEL_NAME=runwayml/stable-diffusion-inpainting #Required
+    #NUM_INFERENCE_STEPS=NUM_INFERENCE_STEPS #Not Required
+   ```
 # Clone the Repository:
    ```
    git clone https://github.com/fusionsami/ImageInpaintingAPI.git
@@ -44,7 +55,7 @@ This guide provides instructions on how to run the Image Inpainting API in three
         warning.log
    ```
 
-# Scenario 1: Running without Docker
+# Running without Docker
 
 ### Step 1: Set Up Python Virtual Environment
  - Create a Python virtual environment and activate.
@@ -61,6 +72,21 @@ This guide provides instructions on how to run the Image Inpainting API in three
 ### Step 3: Run the Application
  - Once everything is set up, run the FastAPI app using Uvicorn.
    ```
-   pip install -r requirements.txt
-   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
+   
+# Running with Docker
+### Run the Application
+ - In root directory buid and up using docker-compose.yml file.
+   ```
+   docker-compose up --build
+   ```
+- Useful Docker Commands:
+  ```
+   docker-compose build #rebuild the Docker image
+   docker-compose up #To start the services defined in your docker-compose.yml file
+   docker-compose down #To stop the running services
+   docker-compose logs app #To view logs of a specific service
+   docker-compose exec app /bin/sh #To run a command in the running container
+   
+  ```
