@@ -75,19 +75,37 @@ This guide provides instructions on how to run the Image Inpainting API in two d
    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
    
-# Running with Docker
+# Running with Docker (GPU Supported)
 ### Run the Application
- - In root directory buid and up using docker-compose.yml file.
+ - In root directory buid and up using docker-compose-gpu.yml file.
+ - Make sure you have NVIDIA GPU in your system.
    ```
-   docker-compose up --build
+   docker-compose -f docker-compose-gpu.yml up
    ```
 - Useful Docker Commands:
   ```
-   docker-compose build #rebuild the Docker image
-   docker-compose up #To start the services defined in your docker-compose.yml file
-   docker-compose down #To stop the running services
-   docker-compose logs app #To view logs of a specific service
-   docker-compose exec app /bin/sh #To run a command in the running container
+   docker-compose -f docker-compose-gpu.yml build #rebuild the Docker image
+   docker-compose -f docker-compose-gpu.yml start #To start the services defined in your docker-compose.yml file
+   docker-compose -f docker-compose-gpu.yml down #To stop the running services
+   docker-compose -f docker-compose-gpu.yml logs app-gpu #To view logs of a specific service
+   docker-compose -f docker-compose-gpu.yml exec app-gpu /bin/sh #To run a command in the running container
+   
+  ```
+
+# Running with Docker (Without GPU)
+### Run the Application
+ - In root directory buid and up using docker-compose-cpu.yml up file.
+ - If your system dont have a NVIDIA GPU, use this method.
+   ```
+   docker-compose -f docker-compose-cpu.yml up
+   ```
+- Useful Docker Commands:
+  ```
+   docker-compose -f docker-compose-cpu.yml build #rebuild the Docker image
+   docker-compose -f docker-compose-cpu.yml start #To start the services defined in your docker-compose.yml file
+   docker-compose -f docker-compose-cpu.yml down #To stop the running services
+   docker-compose -f docker-compose-cpu.yml logs app-cpu #To view logs of a specific service
+   docker-compose -f docker-compose-cpu.yml exec app-cpu /bin/sh #To run a command in the running container
    
   ```
 
