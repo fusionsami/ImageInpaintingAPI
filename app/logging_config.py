@@ -2,13 +2,12 @@ import os
 import logging
 
 def setup_logging():
-    # Get the absolute path to the logs directory
     log_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../logs/"))       
     os.makedirs(log_dir, exist_ok=True)
 
     # Create a logger with propagation enabled
-    logger = logging.getLogger("InpaintLogging")  # Use a specific name for your app
-    logger.setLevel(logging.DEBUG)  # Set the logging level to DEBUG
+    logger = logging.getLogger("InpaintLogging")  
+    logger.setLevel(logging.DEBUG)  
 
     # Handlers for different log levels
     info_handler = logging.FileHandler(os.path.join(log_dir, "info.log"))
