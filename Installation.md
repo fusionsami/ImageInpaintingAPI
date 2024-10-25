@@ -61,6 +61,5 @@ This guide provides instructions on how to run the Image Inpainting API in three
 ### Step 3: Run the Application
  - Once everything is set up, run the FastAPI app using Uvicorn.
    ```
-   pip install -r requirements.txt
-   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
