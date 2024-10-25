@@ -17,4 +17,30 @@ This guide provides instructions on how to run the Image Inpainting API in three
    git clone https://github.com/fusionsami/ImageInpaintingAPI.git
    cd ImageInpaintingAPI
    ```
+# Project Structure:
+   ```
+│   .env
+│   .gitignore
+│   docker-compose.yml
+│   Dockerfile
+│   Installation.md
+│   README.md
+│   requirements.txt
+│
+├───app
+│   │   logging_config.py
+│   │   main.py
+│   │   models.py
+│   │   utils.py
+│           
+├───example_images
+│       dog.jpg
+│       dog_inpainted.jpg
+│       postman_api_details.png
+│
+└───logs
+        error.log
+        info.log
+        warning.log
+   ```
   
