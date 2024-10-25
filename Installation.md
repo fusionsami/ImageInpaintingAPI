@@ -66,7 +66,7 @@ This guide provides instructions on how to run the Image Inpainting API in three
    ```
    
 # Running with Docker
-### Step 3: Run the Application
+### Run the Application
  - In root directory buid and up using docker-compose.yml file.
    ```
   docker-compose up --build
