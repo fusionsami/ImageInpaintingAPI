@@ -95,6 +95,33 @@ This guide provides instructions on how to run the Image Inpainting API in two d
   - Logs for all methods will be stored in the same location (./logs) as per the project structure.
   - Console log is also included for easy debugging.
 
+
+
+# .env Parameters Details
+
+### MODEL_NAME
+- **Description**: Specifies the pre-trained model to use.
+- **Example**: `runwayml/stable-diffusion-inpainting`
+- **Required**: Yes
+- **Purpose**: Uses a pre-trained model that applies generative techniques to fill in missing parts of an image.
+
+### GUIDANCE_SCALE (optional)
+- **Description**: Controls the "creativity" or adherence to the prompt during generation.
+- **Typical Range**: 7 to 10
+- **Purpose**: A lower scale allows more variation, while a higher scale makes the output closely match the prompt.
+
+### STRENGTH (optional)
+- **Description**: Determines the extent to which the inpainting affects the original image.
+- **Typical Range**: 0.0 to 1.0
+- **Purpose**: A value closer to 1.0 changes the image more drastically, while lower values preserve more of the original content.
+
+### NUM_INFERENCE_STEPS (optional)
+- **Description**: Specifies the number of diffusion steps during generation.
+- **Purpose**: Higher values yield more refined and potentially higher-quality images, but also increase computation time.
+
+By tuning these parameters, you can control the balance between preserving the original image and applying new content based on the prompt in the inpainting process.
+
+
 # Testing the API
   - You can now test the API locally. Go to http://localhost:8000/inpaint/ using POST method.
   - Please check the given curl:
